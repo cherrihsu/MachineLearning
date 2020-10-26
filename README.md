@@ -1,7 +1,7 @@
 # MachineLearning
 The artificial neural networks predict charge transport coupling of a naphthalene dimer. All the information of the models is published in The Journal of Chemical Physics by Chun-I Wang, Ignasius Joanito, Chang-Feng Lan, and Chao-Ping Hsu. We provided five well-trained models that are built up by PyTorch and are denoted as ANN-1, ANN-2, ANN-3, ANN-4, and ANN5 in the article and the following introduction. Four example files are also provided for the test of our ML models. They are four pairs of naphthalene molecules that follow the format of QChem input file. For ANN-2 and ANN-3, we also provide the coupling value that is rescaled by an scaling factor, and that can reach the accuracy of high-level ab initio calculation.
 
-Please download all the python source codes, the PyTorch model files ,and the testing files:
+Please download all the python source codes, the PyTorch model files, and the testing files:
 1. ML_Prediction.py (main source code)
 2. subroutine_Feature_Generation.py (subroutine)
 3. subroutine_Load_QChem_Input_File.py (subroutine)
