@@ -1,0 +1,66 @@
+$comment
+	Naphthalene	Dimer 4.5 angstrom
+$end
+
+$molecule
+  0  1
+--
+  0  1
+C     0.000027    -2.436241    -0.708257
+C    -0.000052    -2.436287     0.708129
+C    -0.000026    -1.244972     1.403927
+C     0.000007    -0.000028     0.718929
+C     0.000022     0.000028    -0.718922
+C     0.000017    -1.244888    -1.403945
+C     0.000027     1.244892     1.403946
+C     0.000055     2.436243     0.708253
+C    -0.000086     2.436285    -0.708134
+C     0.000010     1.244968    -1.403926
+H     0.000133    -3.384395    -1.247971
+H    -0.000170    -3.384477     1.247794
+H     0.000002    -1.243199     2.496144
+H     0.000002    -1.242911    -2.496186
+H     0.000003     1.242922     2.496187
+H     0.000256     3.384399     1.247964
+H    -0.000363     3.384473    -1.247802
+H     0.000160     1.243188    -2.496142
+--
+  0  1
+C     5.000027    -2.436241    -0.708257
+C     4.999948    -2.436287     0.708129
+C     4.999974    -1.244972     1.403927
+C      5.000007    -0.000028     0.718929
+C      5.000022     0.000028    -0.718922
+C     5.000017    -1.244888    -1.403945
+C      5.000027     1.244892     1.403946
+C      5.000055     2.436243     0.708253
+C      4.999914     2.436285    -0.708134
+C      5.000010     1.244968    -1.403926
+H     5.000133    -3.384395    -1.247971
+H     4.999830    -3.384477     1.247794
+H     5.000002    -1.243199     2.496144
+H     5.000002    -1.242911    -2.496186
+H      5.000003     1.242922     2.496187
+H      5.000256     3.384399     1.247964
+H      4.999637     3.384473    -1.247802
+H     5.000160     1.243188    -2.496142
+$end
+
+
+$rem
+	JOBTYPE      SP
+	METHOD     	 BLYP			! Set the exchange-correlation functions
+	BASIS        DZ*
+	LRC_DFT		 TRUE			! Control the application of long-range-corrected DFT
+	OMEGA		 260			! Set the range-separation parameter
+	!GUI  =  2
+	MAX_SCF_CYCLES	 200
+	SCF_PRINT_FRGM   TRUE		! for printing out SCF results of each fragments
+	SYM_IGNORE       TRUE		! Necessary rem key for DC calculations.
+	SCF_GUESS        FRAGMO		! Use MOs of each fragments.
+	STS_DC               FOCK	! Use Frontier Molecular Orbital (FMO) approach
+	SCF_CONVERGENCE      5		! 5 For SP calculations/8 For OPT, vibrational analysis and SSG calculation; see p. 1083 in Q-Chem Manual 5.0
+	STS_TRANS_DONOR      2-2
+	STS_TRANS_ACCEPTOR   2-2
+	SCF_FINAL_PRINT		 2		! Controls level of output from SCF procedure to Q-CHEM output file at the end of the; see p. 1084 in Q-Chem Manual 5.0
+$end
