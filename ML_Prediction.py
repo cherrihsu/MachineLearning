@@ -1,4 +1,3 @@
-# Required library: Numpy, PyTorch, Scipy vesrion
 # The unit of electronic coupling predicted by the machine learning model is electron volt (eV)
 
 import numpy as np
@@ -9,10 +8,9 @@ from subroutine_NN_Architecture import Model
 from subroutine_Feature_Generation import generate_CM
 
 ###### Set parameters #####
-QCmem_filename = 'Nap_35.inp'
-Model_name = '250K_CM_BN_H5_666_BSize800_Constant00070_Best_Model.pth'
+QCmem_filename = 'Nap_35.inp' #Specify QChem input file
+Model_name = 'ANN-3.pth'  #Specify the artificial neural network model
 device = "cpu" # cuda or cpu
-scale_factor = 1/0.8537 #ANN3: 1/0.8537
 
 
 def main():     
@@ -67,8 +65,13 @@ def main():
     model.eval()
     Y_predict = model.forward(X).detach()
     print('Predicted electronic coupling: %.2f [meV]' %(Y_predict.cpu().numpy()[0,0]*1000))
-    print('Predicted electronic coupling after rescaling: %.2f [meV]' %(Y_predict.cpu().numpy()[0,0]*1000*scale_factor))
-
+    
+    if (QCmem_filename == "ANN-3.pth"):
+        scale_factor = 1.17
+        print('Predicted electronic coupling after rescaling: %.2f [meV]' %(Y_predict.cpu().numpy()[0,0]*1000*scale_factor))
+    elif (QCmem_filename == "ANN-2.pth"):
+        scale_factor = 1.19
+        print('Predicted electronic coupling after rescaling: %.2f [meV]' %(Y_predict.cpu().numpy()[0,0]*1000*scale_factor))
 
 if __name__ == '__main__':
     main()
