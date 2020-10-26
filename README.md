@@ -24,7 +24,7 @@ Please download all the python source codes, the PyTorch model files ,and the te
 3. Save and run "ML_Prediction.py" 
 
 ########## Performing ML with new data ##########
-1. Make sure the order of atoms of a new pair in the new QChem in put file is in the same order of atom sequence as the provided testing files!
+1. Make sure the order of atoms of a new pair in the new QChem input file is in the same order of atom sequence as the provided testing files!
 2. Specify the testing file in ML_Prediction.py
    e.g., QCmem_filename = 'Nap_35.inp'
 3. Specify the ML model (ANN-2 or ANN-3) in ML_Prediction.py
